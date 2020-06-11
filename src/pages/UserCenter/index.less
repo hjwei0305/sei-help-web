@@ -1,0 +1,17 @@
+.user-center-wrapper {
+  height: 100%;
+  background-color: #fff;
+  :global {
+    .ant-tabs-vertical .ant-tabs-content {
+      padding-left: 0;
+      .ant-tabs-top {
+        height: 100%;
+        padding: 8px;
+        .ant-tabs-content.ant-tabs-top-content {
+          height: calc(100% - 60px) !important;
+          background-color: #fff;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,33 @@
+@import '../../../../themes/vars.less';
+
+.sei-sub-header {
+  background-color: white;
+  height: @layout-sub-header-height;
+  margin: 5px 0 8px 0;
+  font-size: 16px;
+  :global {
+    .sub-tab-nav {
+      position: absolute;
+      padding: 0;
+      color: #333;
+      .sub-tab-nav-item {
+        display: inline-block;
+        padding: 0 10px;
+        cursor: pointer;
+        line-height: @layout-sub-header-height;
+        &_actived {
+          color: #5FB878;
+        }
+        &:hover {
+          color: #009688;
+        }
+      }
+    }
+    .sub-header-right {
+      position: absolute;
+      top: 0;
+      right: 0;
+      line-height: @layout-sub-header-height;
+    }
+  }
+}
