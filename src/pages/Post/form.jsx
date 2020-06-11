@@ -84,6 +84,12 @@ class TopicForm extends Component {
       afterSelect: (item) => {
         this.setState({
           tabId: item.id,
+        }, () => {
+          const { form: { setFieldsValue } } = this.props;
+          setFieldsValue({
+            bizId: '',
+            bizName: '',
+          });
         });
       }
     };
@@ -95,7 +101,7 @@ class TopicForm extends Component {
 
     return  {
       form,
-      // key: tabId,
+      key: tabId,
       store: {
         autoLoad: false,
         url: `${communityService}/category/biz/list/${tabId}`,
@@ -113,9 +119,7 @@ class TopicForm extends Component {
 
   render() {
     const { editData, form: { getFieldDecorator }, } = this.props;
-    console.log("TopicForm -> render -> editData", editData)
     const { tabId='', tabName, bizId='', bizName='', title='', id='', url, content, } = editData || {};
-    console.log("TopicForm -> render -> tabName", tabName)
 
     return (
       <div>
