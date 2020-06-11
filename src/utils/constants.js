@@ -9,7 +9,7 @@ const getServerPath = function () {
       return '/service.api'
     }
   }
-  return `${BASE_DOMAIN}${GATEWAY}`
+  return '';
 }
 
 const BASE_DOMAIN = '/';
