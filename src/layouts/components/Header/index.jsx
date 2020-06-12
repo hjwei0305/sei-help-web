@@ -15,6 +15,12 @@ class Header extends Component {
 
   isHomePage = () => {
     console.log(this.props.history);
+    const { location: { pathname } } = this.props.history || { location: {} }
+    if (pathname === '/homepage') {
+      return true;
+    }
+
+    return false;
   }
 
   render() {

@@ -22,7 +22,7 @@ class HomePage extends Component {
       type: 'homepage/getTopicsByPage',
       payload: {
         tabId: currTabId,
-        bizId: currsubTabId,
+        bizId: currsubTabId === 'all' ? undefined : currsubTabId,
         ...pageParams,
       },
     });

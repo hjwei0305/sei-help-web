@@ -19,6 +19,9 @@ export default {
   mountElementId: name,
   hash: true,
   plugins: [
+    ['umi-plugin-cache-route', {
+      keepalive:['/homepage']
+    }],
     ['@umijs/plugin-qiankun'],
     [
       'umi-plugin-react',
