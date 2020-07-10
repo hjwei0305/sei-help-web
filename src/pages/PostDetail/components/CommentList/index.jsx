@@ -60,7 +60,7 @@ class CommentList extends Component {
       this.docIds = tempFiles.map(attach => attach.id || attach.uid);
     }
     const content = this.editorStateContent;
-    const reg = /<p>\s*<\/p>/;
+    const reg = /^<p>\s*<\/p>$/;
     if (!content || reg.test(content)) {
       message.error('亲，请先添加评论内容哦');
       this.editorContainer.focus();

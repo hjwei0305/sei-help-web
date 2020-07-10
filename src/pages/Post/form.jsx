@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import { Form, Input, } from 'antd';
-import { RichEditor, Attachment, ComboList } from 'suid';
+import { Attachment, ComboList } from 'suid';
+// 引入编辑器组件
+import BraftEditor from 'braft-editor';
 import { constants } from '@/utils';
 
+// 引入编辑器样式
+import 'braft-editor/dist/index.css';
 
 const { Item: FormItem } = Form;
 const { SEIEDMSERVICE, communityService, } = constants;
@@ -58,6 +62,7 @@ class TopicForm extends Component {
           ...editData,
           ...values,
           ...extraParms,
+          content: values.content.toHTML(),
           url: values.url || '',
           docIds: tempFiles ? tempFiles.map(attach => attach.id || attach.uid) : [],
         });
@@ -180,13 +185,20 @@ class TopicForm extends Component {
             </FormItem>
             <FormItem label="话题内容">
               {getFieldDecorator('content', {
-                initialValue: content,
+                validateTrigger: 'onBlur',
+                initialValue: BraftEditor.createEditorState(content),
                 rules: [{
                   required: true,
-                  message: '内容不能为空'
+                  validator: (_, value, callback) => {
+                    if (value.isEmpty()) {
+                      callback('内容不能为空')
+                    } else {
+                      callback()
+                    }
+                  }
                 }],
               })(
-                <RichEditor placeholder="话题内容" />
+                <BraftEditor placeholder="话题内容" />
               )}
             </FormItem>
             <FormItem label="附件">
