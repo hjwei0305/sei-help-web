@@ -33,7 +33,6 @@ class SsoWrapperPage extends React.Component {
           getAuthorizedFeatures().then(res => {
             const { success: getSuccess, data: authData} = res;
             if (getSuccess) {
-              console.log(authData['/sei-help-web/center']);
               setCurrentAuth(authData['/sei-help-web/center'] || [])
             }
           });

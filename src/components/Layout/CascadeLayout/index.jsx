@@ -10,7 +10,6 @@ export default class CascadeLayout extends PureComponent {
     const [leftTitle, rightTitle,] = title;
     const [leftSpan, rightSpan,] = layout;
     const bordered = false;
-    console.log(layout);
     if (!children) {
       return null;
     }

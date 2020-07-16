@@ -7,6 +7,7 @@ import { Tooltip, Row, Col, Icon, Divider, Empty, Modal, message, Skeleton} from
 import { Attachment, ScrollBar, utils } from 'suid';
 import { constants, optAuths, userUtils, } from '@/utils';
 import ExtTag from '@/components/ExtTag';
+import withSessionUser from '@/components/withSessionUser';
 import CommentList from './components/CommentList';
 import styles from './index.less';
 
@@ -15,6 +16,7 @@ const { isCurrUser, } = userUtils;
 const { SEIEDMSERVICE, } = constants;
 const DATEFORMATSTR = 'YYYY-MM-DD HH:mm';
 
+@withSessionUser
 @connect(({ postDetail, loading, }) => ({ postDetail, loading, }))
 class PostDetail extends Component {
   constructor(props) {
@@ -153,7 +155,6 @@ class PostDetail extends Component {
     const { loading, } = this.props;
     const { detail, } = this.state;
     const { topic, comments, collect } = detail || {};
-    console.log("PostDetail -> render -> topic", topic)
 
     return (
       <div ref={inst => this.wrapper=inst} className={cls(styles['post-detail-warpper'])}>
@@ -196,7 +197,7 @@ class PostDetail extends Component {
                 <ExtTag borderFont ignore={isCurrUser(topic.creatorId)} key={optAuths.GOOD_TOPIC} loading={loading.effects['postDetail/goodTopic']} color="#009688" onClick={this.handleGood}>{topic.good ? '取消加精' : '加精'}</ExtTag>,
                 <ExtTag borderFont ignore={isCurrUser(topic.creatorId)} key={optAuths.TOP_TOPIC} loading={loading.effects['postDetail/topTopic']} color="#009688" onClick={this.handleTop}>{topic.top ? '取消置顶' : '置顶'}</ExtTag>,
               ])}
-                  <ExtTag borderFont loading={loading.effects['postDetail/collectTopic']} color="#009688" onClick={() => this.handleCollect(collect)}>{ collect ? '取消收藏' : '收藏'}</ExtTag>
+                  <ExtTag key="collect" borderFont loading={loading.effects['postDetail/collectTopic']} color="#009688" onClick={() => this.handleCollect(collect)}>{ collect ? '取消收藏' : '收藏'}</ExtTag>
               </Row>
               <Divider />
                 {

@@ -4,10 +4,12 @@ import { router, } from 'umi';
 import { Button, Row, Checkbox, Col, Spin, } from 'antd';
 import { ScrollBar, } from 'suid';
 import cls from 'classnames';
+import withSessionUser from '@/components/withSessionUser';
 import TopicForm from './form';
 
 import styles from './index.less';
 
+@withSessionUser
 @connect(({ post, homepage, loading, }) => ({ post, homepage, loading, }))
 class Post extends Component {
 

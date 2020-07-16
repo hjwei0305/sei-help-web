@@ -30,7 +30,6 @@ export default {
 
       let businessCategories = []
       if (tabSuccess && tabCategories && tabCategories.length) {
-        console.log("*getPreData -> tabCategories", tabCategories)
         const businessResult = yield call(getBusinessCategory, tabCategories[0].id);
         const { success, data } = businessResult;
         if(success) {

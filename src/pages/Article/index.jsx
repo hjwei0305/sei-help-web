@@ -59,7 +59,6 @@ class Article extends Component {
   }
 
   handleImageUpload = file => {
-    console.log(file);
     return new Promise(resolve => {
       const reader = new FileReader();
       reader.onload = data => {
@@ -76,8 +75,7 @@ class Article extends Component {
         toc: res.toc,
       });
 
-      console.log('handleEditorChange', html, text, res.toc);
-    }) 
+    })
   }
 
   render() {
