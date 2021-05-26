@@ -52,6 +52,7 @@ export const IS_DEVELOPMENT = NODE_ENV === 'development';
 export const BASEURL = `${HOST}${CONTEXTPATH}`;
 
 export const authApiUrl = "/sei-auth";
+export const basicApiUrl = "/sei-basic";
 export const communityService = `${SERVER_PATH}${BASEURL}/sei-help`;
 
 export const SEIAUTHSERVICE = `${SERVER_PATH}${BASEURL}/sei-auth`;
