@@ -23,6 +23,6 @@ export async function logout(params) {
 
 /** 获取当前用户有权限的功能项集合 */
 export async function getAuthorizedFeatures(userId) {
-  return request.get(`${basicApiUrl}/user/getAuthorizedFeatures?userId=${userId}`);
+  return request.get(`${basicApiUrl}/user/getUserAuthorizedFeatureMaps?userId=${userId}`);
 }
 

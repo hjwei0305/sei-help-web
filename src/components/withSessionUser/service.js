@@ -21,5 +21,5 @@ export const getUserByXsid = params =>
 
   export const getAuthorizedFeatures = () => {
     const user = getCurrentUser();
-    return request.get(`${SEIBASICSERVICE}/user/getAuthorizedFeatures?userId=${user.userId}`);
+    return request.get(`${SEIBASICSERVICE}/user/getUserAuthorizedFeatureMaps?userId=${user.userId}`);
   }
