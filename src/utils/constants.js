@@ -56,6 +56,7 @@ export const basicApiUrl = "/sei-basic";
 export const communityService = `${SERVER_PATH}${BASEURL}/sei-help`;
 
 export const SEIAUTHSERVICE = `${SERVER_PATH}${BASEURL}/sei-auth`;
+export const SEIBASICSERVICE = `${SERVER_PATH}${BASEURL}/sei-basic`;
 export const SEIEDMSERVICE = `${SERVER_PATH}${BASEURL}/edm-service`;
 
 /** 升级的常量放到这里 */

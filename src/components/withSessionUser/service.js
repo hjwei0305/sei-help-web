@@ -1,5 +1,5 @@
 import { request, constants, userUtils, } from "@/utils";
-const { communityService, SEIAUTHSERVICE, } = constants;
+const { communityService, SEIAUTHSERVICE, SEIBASICSERVICE } = constants;
 
 const { getCurrentUser, } = userUtils;
 
@@ -21,5 +21,5 @@ export const getUserByXsid = params =>
 
   export const getAuthorizedFeatures = () => {
     const user = getCurrentUser();
-    return request.get(`${SEIAUTHSERVICE}/auth/getAuthorizedFeatures?userId=${user.userId}`);
+    return request.get(`${SEIBASICSERVICE}/user/getAuthorizedFeatures?userId=${user.userId}`);
   }
