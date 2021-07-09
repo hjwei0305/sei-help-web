@@ -111,7 +111,7 @@ class HomePage extends Component {
         dispatch({
           type: 'homepage/getBusinessCategory',
           payload: {
-            id: data[0].id
+            id: data[0] && data[0].id
           },
         }).then(_ => {
           const { homepage, } = this.props;
